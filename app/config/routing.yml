@@ -1,3 +1,7 @@
+pages:
+    resource: "@PagesBundle/Resources/config/routing.yml"
+
+
 ecommerce:
     resource: "@EcommerceBundle/Resources/config/routing.yml"
 
