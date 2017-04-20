@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="utilisateurs")
  */
-class Utilisateurs  extends BaseUser
+class Utilisateurs extends BaseUser
 {
     /**
      * @ORM\Id
@@ -22,6 +22,23 @@ class Utilisateurs  extends BaseUser
     public function __construct()
     {
         parent::__construct();
+        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->adresses = new \Doctrine\Common\Collections\ArrayCollection();
         // your own logic
     }
+
+    /**
+  * @ORM\OneToMany(targetEntity="Ecommerce\EcommerceBundle\Entity\Commandes", mappedBy="utilisateur", cascade={"remove"})
+  * @ORM\JoinColumn(nullable=true)
+  */
+
+    private $commandes;
+
+    /**
+* @ORM\OneToMany(targetEntity="Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses", mappedBy="utilisateur", cascade={"remove"})
+* @ORM\JoinColumn(nullable=true)
+*/
+
+    private $adresses;
+
 }

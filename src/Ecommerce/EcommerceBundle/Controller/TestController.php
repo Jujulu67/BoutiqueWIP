@@ -5,8 +5,20 @@ namespace Ecommerce\EcommerceBundle\Controller;
 use Ecommerce\EcommerceBundle\EcommerceBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ecommerce\EcommerceBundle\Entity\Produits;
+use Ecommerce\EcommerceBundle\Form\testType;
+
 class TestController extends Controller
 {
+
+    public function testFormulaireAction()
+    {
+        $form = $this->createForm(testType::class);
+
+        return $this->render('EcommerceBundle:Default:test.html.twig', array('form' => $form->createView(),));
+
+    }
+
+
     public function ajoutAction()
     {
 
